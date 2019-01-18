@@ -1,0 +1,7 @@
+<%= form_for :users, url: {action: 'create'} do |f| %>
+
+    <%= f.label :username, 'НикНейм' %>
+    <%= f.text_field :username %>
+
+    <%= f.submit 'Войти' %>
+<% end %>
