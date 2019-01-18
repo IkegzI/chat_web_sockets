@@ -9,9 +9,13 @@ App.chat = App.cable.subscriptions.create "ChatChannel",
   received: (data) ->
     console.log(data['msg'])
 
-  send_msg: (data) ->
-    @perform 'send_msg', message: data
+  send_msg: (user, text) ->
+    @perform 'send_msg', user: user, message: text
 
   user_connect: ->
     @perform 'user_connect'
+
+  user_disconnect: (data) ->
+    @perform 'user_disconnect', username: data
+    
     

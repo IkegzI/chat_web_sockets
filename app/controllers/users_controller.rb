@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def create
     user = User.find_by(username: params[:users][:username])
 
+
     if user.nil?
       User.create(username: params[:users][:username], online: true)
       cookies.signed[:username] = {value: "#{params[:users][:username]}", expires: 1.hours.from_now}
