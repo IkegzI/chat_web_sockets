@@ -5,6 +5,10 @@ test:
   adapter: async
 
 production:
-  adapter: redis
-  url: redis://localhost:6379/1
-  channel_prefix: SimpleChatRealTime_production
+  adapter: async
+
+
+
+#  redis
+#  url: redis://localhost:6379/1
+#  channel_prefix: SimpleChatRealTime_production
