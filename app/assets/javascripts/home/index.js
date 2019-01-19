@@ -4,29 +4,27 @@ $(document).ready(function () {
         if (data['msg'] != undefined) {
             $("#chat").append(data['user'] + data['msg'] + '<br>')
         }
+        /* CHECK ONLINE */
         if ($("#usr").text() == data['users_off']) {
         window.location.href = '/'
         }
         $(".users").html(data['users'])
     }
 
+    /* SEND MESSAGE */
     $("#send").click(function () {
-        /* SEND MESSAGE */
         App.chat.send_msg($('#usr').text(), $("#msg").val())
     })
 
+    /* EXIT */
     $("#quit").click(function usr_out() {
         App.chat.user_disconnect($('#usr').text())
         // 
     })
 
+    /* ANSWER */
     $(document).on('click', '.users_link', function () {
-        $('#msg').val("<span class='answer'>" + $(this).attr('id') + ' : ' + "</span>")
+        $('#msg').val($(this).attr('id') + ' : ')
     })
+
 })
-
-
-/**
- * Created by keGZ on 16.01.2019.
- */
-

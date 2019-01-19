@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  # ONLINE CHECK
   def index
     user = User.find_by(username: cookies.signed[:username])
     if user.online == false
