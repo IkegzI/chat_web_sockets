@@ -6,7 +6,7 @@ $(document).ready(function () {
         }
         /* CHECK ONLINE */
         if ($("#usr").text() == data['users_off']) {
-        window.location.href = '/'
+            window.location.href = '/'
         }
         $(".users").html(data['users'])
     }
@@ -19,12 +19,16 @@ $(document).ready(function () {
     /* EXIT */
     $("#quit").click(function usr_out() {
         App.chat.user_disconnect($('#usr').text())
-        // 
+        //
     })
 
     /* ANSWER */
     $(document).on('click', '.users_link', function () {
         $('#msg').val($(this).attr('id') + ' : ')
     })
-
+    window.onbeforeunload = function () {
+        if ($('div').is('#chat') == true) {
+            App.chat.user_disconnect($('#usr').text())
+        }
+    }
 })
