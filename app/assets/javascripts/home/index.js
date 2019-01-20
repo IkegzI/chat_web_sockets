@@ -14,6 +14,7 @@ $(document).ready(function () {
     /* SEND MESSAGE */
     $("#send").click(function () {
         App.chat.send_msg($('#usr').text(), $("#msg").val())
+        $("#msg").val('')
     })
 
     /* EXIT */
